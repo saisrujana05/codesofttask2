@@ -1,0 +1,37 @@
+import java.io.*;
+
+class Gradecalculater {
+    public static void main(String args[]) {
+        try {
+            InputStreamReader isr = new InputStreamReader(System.in);
+            BufferedReader br = new BufferedReader(isr);
+            System.out.println("Enter number of subjects");
+            int newsubjects = Integer.parseInt(br.readLine());
+            int totalMarks = 0;
+            for (int i = 1; i <= newsubjects; i++) {
+                System.out.println("Enter marks obtained in subject" + i + ":");
+                int marks = Integer.parseInt(br.readLine());
+                totalMarks += marks;
+            }
+            int averagePercentage = totalMarks / newsubjects;
+            String grade;
+            if (averagePercentage > 80)
+                grade = "A";
+            else if (averagePercentage > 75)
+                grade = "B";
+            else if (averagePercentage > 65)
+                grade = "C";
+            else if (averagePercentage > 55)
+                grade = "D";
+            else if (averagePercentage > 40)
+                grade = "E";
+            else
+                grade = "F";
+            System.out.println("Total marks:" + totalMarks);
+            System.out.println("Average Percentage:" + averagePercentage);
+            System.out.println("Grade:" + grade);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+}
